@@ -1,0 +1,7 @@
+  --hide-void-return
+  --no-private
+
+  --plugin tomdoc
+
+  --markup markdown
+  --markup-provider redcarpet

@@ -1,0 +1,26 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - config/**/*
+    - coverage/**/*
+    - db/**/*
+    - doc/**/*
+    - log/**/*
+    - public/**/*
+    - script/**/*
+    - tmp/**/*
+    - vendor/**/*
+
+Rails:
+  Enabled: true
+
+MethodCalledOnDoEndBlock:
+  Enabled: true
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Documentation:
+  Exclude:
+    - app/controllers/**/*
+    - app/helpers/**/*
