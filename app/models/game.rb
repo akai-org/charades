@@ -27,7 +27,15 @@ class Game < ActiveRecord::Base
     state :finished
 
     event :start do
-      transitions from: :created, to: :playing
+      transitions from: :created, to: :playing do
+        after do
+          rounds.create
+        end
+
+        guard do
+          teams.count > 0
+        end
+      end
     end
 
     event :finish do
@@ -36,6 +44,6 @@ class Game < ActiveRecord::Base
   end
 
   def current_round
-    rounds.first
+    rounds.where(winner: nil).first
   end
 end

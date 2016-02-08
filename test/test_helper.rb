@@ -14,9 +14,6 @@ unless ENV['CI']
                            Minitest.backtrace_filter)
 end
 
-# RR mocking library
-require 'rr'
-
 # Extra matchers
 require 'minitest/extra/matchers'
 

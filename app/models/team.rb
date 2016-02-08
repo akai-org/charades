@@ -17,10 +17,7 @@ class Team < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { scope: :game_id }
 
-  default_scope { with_points.order('points DESC') }
-
-  def self.with_points
-    joins('LEFT JOIN "rounds" ON "rounds"."winner_id" = "teams"."id"')
-      .select('teams.*, COUNT(rounds.id) as points')
+  def points
+    wins.count
   end
 end

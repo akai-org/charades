@@ -4,14 +4,22 @@ class GamesController < ApplicationController
   end
 
   def show
-    respond_with Game.find(params[:id])
+    respond_with game
   end
 
   def create
     respond_with Game.create(game_params)
   end
 
+  def update
+    respond_with game.start!
+  end
+
   protected
+
+  def game
+    @game ||= Game.find(params[:id])
+  end
 
   def game_params
     params

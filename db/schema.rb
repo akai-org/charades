@@ -28,13 +28,15 @@ ActiveRecord::Schema.define(version: 20160208135205) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.string   "riddle",     null: false
+    t.string   "riddle",      null: false
+    t.integer  "category_id"
     t.integer  "winner_id"
-    t.integer  "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "game_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "rounds", ["category_id"], name: "index_rounds_on_category_id"
   add_index "rounds", ["game_id"], name: "index_rounds_on_game_id"
   add_index "rounds", ["winner_id"], name: "index_rounds_on_winner_id"
 
